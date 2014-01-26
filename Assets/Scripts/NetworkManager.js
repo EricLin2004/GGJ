@@ -3,6 +3,7 @@
 var typeName : String = "BallOnBall";
 var gameName : String = "Arena";
 var hostList : HostData[];
+var playerPrefab : GameObject;
 
 function StartServer(){
   Network.InitializeServer(4, 25000, !Network.HavePublicAddress());
@@ -11,6 +12,7 @@ function StartServer(){
 
 function OnServerInitialized () {
 	Debug.Log("Server Initialized!");
+	SpawnPlayer();
 }
 
 function OnGUI() {
@@ -43,4 +45,12 @@ function JoinServer(hostData : HostData){
 
 function OnConnectedToServer(){
   Debug.Log("Server Joined!");
+  SpawnPlayer();
+}
+
+function SpawnPlayer(){
+	var x : float = Random.value * 45;
+	var z : float = Random.value * 45;
+	
+	Network.Instantiate(playerPrefab, new Vector3(x, 1, z), Quaternion.identity, 0);
 }
