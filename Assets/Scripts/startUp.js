@@ -39,8 +39,10 @@ function SetPlayerHUD () {
         scaledHeight = (scaledWidth / textureAspectRatio);
     }
     var xPosition : float = screenWidth / 2 - (scaledWidth / 2);
+    print(screenHeight);
+    print(scaledHeight);
     myGUITexture.pixelInset = 
-        new Rect(xPosition, 282, scaledWidth, scaledHeight);
+        new Rect(xPosition, screenHeight - scaledHeight, scaledWidth, scaledHeight);
 }
 
 function SetBoostHUD () {
