@@ -4,6 +4,7 @@ var myGUITexture : GUITexture;
 var boostGUI : GUITexture;
 var YellowDot : GameObject;
 
+
 function Awake () {
 	Instantiate(myGUITexture, new Vector3(0,0,0), Quaternion.identity);
 	Instantiate(boostGUI, new Vector3(0,0,0), Quaternion.identity);
@@ -12,7 +13,9 @@ function Awake () {
 function Start () {
 	SetPlayerHUD();
 	SetBoostHUD();
-	Instantiate(YellowDot,new Vector3(0,0.5,0), new  Quaternion.AngleAxis(90, Vector3.right));
+	for (var i : int = 0;i < 100; i++) {
+	Instantiate(YellowDot, Vector3(Random.Range(-5,5),0.5,(i/10)+0), new  Quaternion.AngleAxis(90, Vector3.right));
+	}
 }
 
 function SetPlayerHUD () {
