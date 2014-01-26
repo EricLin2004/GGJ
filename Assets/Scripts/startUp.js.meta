@@ -2,7 +2,11 @@ fileFormatVersion: 2
 guid: 4e0cc240b0a8e4161bc9c57a877a67d1
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - myGUITexture: {instanceID: 0}
+  - boostGUI: {instanceID: 0}
+  - YellowDot: {fileID: 100000, guid: ac0e536dd987a4e899b86c85f163a5c4, type: 2}
+  - GreenCheck: {fileID: 100000, guid: 88e4d00cc1b694422a279cd772324117, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
