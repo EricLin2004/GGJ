@@ -18,8 +18,8 @@ function SetPlayerHUD () {
     // but respect the picture aspect ratio
     var textureHeight : int = myGUITexture.texture.height;
     var textureWidth : int = myGUITexture.texture.width;
-    var screenHeight : int = Screen.height;
-    var screenWidth : int = Screen.width;
+    var screenHeight : int = Screen.currentResolution.height;
+    var screenWidth : int = Screen.currentResolution.width;
     
     var screenAspectRatio : int = (screenWidth / screenHeight);
     var textureAspectRatio : int = (textureWidth / textureHeight);
@@ -48,8 +48,8 @@ function SetPlayerHUD () {
 function SetBoostHUD () {
     var textureHeight : int = boostGUI.texture.height;
     var textureWidth : int = boostGUI.texture.width;
-    var screenHeight : int = Screen.height;
-    var screenWidth : int = Screen.width;
+    var screenHeight : int = Screen.currentResolution.height;
+    var screenWidth : int = Screen.currentResolution.width;
     
     var screenAspectRatio : int = (screenWidth / screenHeight);
     var textureAspectRatio : int = (textureWidth / textureHeight);
