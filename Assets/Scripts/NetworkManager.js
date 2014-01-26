@@ -4,6 +4,7 @@ var typeName : String = "BallOnBall";
 var gameName : String = "Arena";
 var hostList : HostData[];
 var playerPrefab : GameObject;
+var background : Texture;
 
 function StartServer(){
   Network.InitializeServer(4, 25000, !Network.HavePublicAddress());
@@ -17,6 +18,7 @@ function OnServerInitialized () {
 
 function OnGUI() {
 	if (!Network.isClient && !Network.isServer) {
+		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), background, ScaleMode.StretchToFill);
 		if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server"))
 			StartServer();
 		if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh Hosts"))
