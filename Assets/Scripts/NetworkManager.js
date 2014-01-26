@@ -52,5 +52,6 @@ function SpawnPlayer(){
 	var x : float = Random.value * 45;
 	var z : float = Random.value * 45;
 	
-	Network.Instantiate(playerPrefab, new Vector3(x, 1, z), Quaternion.identity, 0);
+	var player = Network.Instantiate(playerPrefab, new Vector3(x, 1, z), Quaternion.identity, 0);
+	gameObject.GetComponent.<CameraController>().player = player;
 }
