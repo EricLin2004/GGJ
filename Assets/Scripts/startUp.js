@@ -4,6 +4,7 @@ var myGUITexture : GUITexture;
 var boostGUI : GUITexture;
 var YellowDot : GameObject;
 var GreenCheck : GameObject;
+var PurpleLine : GameObject;
 
 
 function Awake () {
@@ -17,6 +18,7 @@ function Start () {
 	for (var i : int = 0;i < 100; i++) {
 	Instantiate(YellowDot, Vector3(Random.Range(-5,0),0.5,(i/10)+0), new  Quaternion.AngleAxis(90, Vector3.right));
 	Instantiate(GreenCheck, Vector3(Random.Range(0,5),0.5,(i/10)+0), new  Quaternion.AngleAxis(90, Vector3.right));
+	Instantiate(PurpleLine, Vector3(Random.Range(0,5),0.5,-(i/10)+0), new  Quaternion.AngleAxis(90, Vector3.right));
 	}
 }
 
