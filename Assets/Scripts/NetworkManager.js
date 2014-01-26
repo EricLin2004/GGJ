@@ -14,6 +14,7 @@ function StartServer(){
 function OnServerInitialized () {
 	Debug.Log("Server Initialized!");
 	SpawnPlayer();
+	audio.Stop();
 }
 
 function OnGUI() {
@@ -48,6 +49,7 @@ function JoinServer(hostData : HostData){
 function OnConnectedToServer(){
   Debug.Log("Server Joined!");
   SpawnPlayer();
+  audio.Stop();
 }
 
 function SpawnPlayer(){
