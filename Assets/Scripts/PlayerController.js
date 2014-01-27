@@ -38,9 +38,11 @@ function OnCollisionEnter(other : Collision) {
 	if(other.gameObject.tag == "Player") {
 		AudioSource.PlayClipAtPoint(explodeSound, transform.position);
 		if(other.gameObject.rigidbody.velocity.magnitude > rigidbody.velocity.magnitude) {
+			GUI.Label(new Rect(Screen.width * 0.3, Screen.height * 0.2, Screen.width * 0.2, Screen.height * 0.2), "Game Over!");
 			print("game over!");		
 			gameObject.SetActive(false);
 		} else {
+			GUI.Label(new Rect(Screen.width * 0.3, Screen.height * 0.2, Screen.width * 0.2, Screen.height * 0.2), "You Win!");
 			print("You win!");
 			other.gameObject.SetActive(false);
 		}
