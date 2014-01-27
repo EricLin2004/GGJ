@@ -2,6 +2,7 @@
 
 var speed : float;
 var dash : float;
+var dashSound : AudioClip;
 
 function Start () {
 
@@ -16,6 +17,7 @@ function Update () {
 		if (Input.GetButtonDown("Jump")) {
 			print("DASH!");
 		    rigidbody.AddForce(movement * dash);
+		    AudioSource.PlayClipAtPoint(dashSound, transform.position);
 		}	
 	}
 }

@@ -9,6 +9,7 @@ function Awake () {
 }
 
 function Start () {
+	print("starting up!");
 	SetPlayerHUD();
 	SetBoostHUD();
 }

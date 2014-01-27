@@ -18,7 +18,6 @@ function StartServer(){
 function OnServerInitialized () {
 	Debug.Log("Server Initialized!");
 	SpawnPlayer();
-	audio.Stop();
 }
 
 function OnGUI() {
@@ -53,14 +52,11 @@ function JoinServer(hostData : HostData){
 function OnConnectedToServer(){
   Debug.Log("Server Joined!");
   SpawnPlayer();
-  audio.Stop();
 }
 
 function SpawnPlayer(){
 	var x : float = Random.value * 45;
-	var z : float = Random.value * 45;
-	print(x);
-	print(z);
+	var z : float = Random.value * 45;    
 	var player = Network.Instantiate(playerPrefab, new Vector3(x, 1, z), Quaternion.identity, 0);
 	gameObject.GetComponent.<CameraController>().player = player;
 }
