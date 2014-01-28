@@ -26,20 +26,37 @@ function Update () {
 	}
 }
 
-function FixedUpdate() {
- 	if (networkView.isMine) {
-    	var speedX : float = speed;
-		var moveHorizontal : float = Input.GetAxis("Horizontal");
-		var moveVertical : float = Input.GetAxis("Vertical");
-		var movement : Vector3 = new Vector3(moveHorizontal,0,moveVertical);
+//function FixedUpdate() {
+// 	if (networkView.isMine) {
+//    	var speedX : float = speed;
+//		var moveHorizontal : float = Input.GetAxis("Horizontal");
+//		var moveVertical : float = Input.GetAxis("Vertical");
+//		var movement : Vector3 = new Vector3(moveHorizontal,0,moveVertical);
+//
+//    if (Input.GetButtonDown("Jump") && !gameObject.Find("PlayerBoostOn(Clone)")) {
+//      speedX = (speed + staticDash) * dash;
+//      Instantiate(boostOn, new Vector3(0,0,1), Quaternion.identity);
+//      SetBoostHUD();
+//      Destroy(gameObject.Find("PlayerBoostOn(Clone)"), 1);
+//    }
+//		rigidbody.AddForce(movement * speed * Time.deltaTime);
+//	}
+//}
 
-    if (Input.GetButtonDown("Jump") && !gameObject.Find("PlayerBoostOn(Clone)")) {
-      speedX = (speed + staticDash) * dash;
-      Instantiate(boostOn, new Vector3(0,0,1), Quaternion.identity);
-      SetBoostHUD();
-      Destroy(gameObject.Find("PlayerBoostOn(Clone)"), 1);
-    }
-		rigidbody.AddForce(movement * speed * Time.deltaTime);
+//  For Android Controls:
+function FixedUpdate() {
+	if (networkView.isMine) {
+		var move : Vector3 = Input.acceleration;
+		var touch = Input.GetTouch(0);
+		var speedX : float = speed;
+		var movement : Vector3 = new Vector3(move.x,0,move.y);
+		if(touch.deltaPosition.x < 10 && touch.deltaPosition.y < 10 && !gameObject.Find("PlayerBoostOn(Clone)")) {
+			speedX = (speed + staticDash) * dash;
+			Instantiate(boostOn, new Vector3(0,0,1), Quaternion.identity);
+			SetBoostHUD();
+			Destroy(gameObject.Find("PlayerBoostOn(Clone)"), 1);
+		}
+		rigidbody.AddForce(movement * speedX * Time.deltaTime * 3);
 	}
 }
 
@@ -64,23 +81,6 @@ function OnCollisionEnter(other : Collision) {
     }
   }
 }
-
- // For Android Controls:
-//function FixedUpdate() {
-//	var move : Vector3 = Input.acceleration;
-//	var touch = Input.GetTouch(0);
-//	var speedX : float = speed;
-//	if(touch.deltaPosition.x < 10 && touch.deltaPosition.y < 10 && !gameObject.Find("PlayerBoostOn(Clone)")) {
-//		speedX = (speed + staticDash) * dash;
-//		Instantiate(boostOn, new Vector3(0,0,1), Quaternion.identity);
-//		SetBoostHUD();
-//		Destroy(gameObject.Find("PlayerBoostOn(Clone)"), 1);
-//	}
-//
-//	var movement : Vector3 = new Vector3(move.x,0,move.y);
-//
-//	rigidbody.AddForce(movement * speedX * Time.deltaTime * 3);
-//}
 
 function SetBoostHUD () {
     var textureHeight : int = boostOn.texture.height;
