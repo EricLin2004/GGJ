@@ -5,6 +5,7 @@ var boostGUI : GUITexture;
 var YellowDot : GameObject;
 var GreenCheck : GameObject;
 var PurpleLine : GameObject;
+var TellDensity : int = 8; //KEEP BELOW 10!!!!
 
 
 function Awake () {
@@ -16,34 +17,46 @@ function Start () {
 	SetPlayerHUD();
 	SetBoostHUD();
 
-/*	for (var i : int = 0; i < 10; i++){
-		for (var j : int = 0; j < 10; j++){
-			var seedNumber = Random.Range(0,3);
+	for (var i : int = 0; i < 5; i++){
+		for (var j : int = 0; j < 5; j++){
+			var seedNumber = Random.Range(1,4);
 			if (seedNumber == 1){
-				for (var k : int = 0;k < Random.Range(0,1); k++){
-				Instantiate(YellowDot, Vector3(Random.Range(j-5,j-4),0.5,i-5), new  Quaternion.AngleAxis(90, Vector3.right));
+				for (var k : int = 0;k < 20; k++){
+					var n : int = 0;
+					while (n < TellDensity){ 
+					Instantiate(YellowDot, Vector3(Random.Range(((i*20)-50),((i*20)-30)),0.5,((j*20)-50)+k), new  Quaternion.AngleAxis(90, Vector3.right));
+					n = Random.Range(1,10);
+					}
 				}
 			}
 			else if (seedNumber == 2){
-				for (var l : int = 0;l < Random.Range(5,15); l++){
-				Instantiate(GreenCheck, Vector3(Random.Range(j-5,j-4),0.5,i-5), new  Quaternion.AngleAxis(90, Vector3.right));
+				for (var l : int = 0;l < 20; l++){
+					var o : int = 0;
+					while (o < TellDensity){ 
+					Instantiate(GreenCheck, Vector3(Random.Range(((i*20)-50),((i*20)-30)),0.5,((j*20)-50)+l), new  Quaternion.AngleAxis(90, Vector3.right));
+					o = Random.Range(1,10);
+					}				
 				}
 			}
 			else if (seedNumber == 3){
-				for (var m : int = 0;m < Random.Range(5,15); m++){
-				Instantiate(PurpleLine, Vector3(Random.Range(j-5,j-4),0.5,i-5), new  Quaternion.AngleAxis(90, Vector3.right));
+				for (var m : int = 0;m < 20; m++){
+					var p : int = 0;
+					while (p < TellDensity){ 
+					Instantiate(PurpleLine, Vector3(Random.Range(((i*20)-50),((i*20)-30)),0.5,((j*20)-50)+m), new  Quaternion.AngleAxis(90, Vector3.right));
+					p = Random.Range(1,10);
+					}
 				}
 			}
 		}
 	}
-}*/
+}
 		
-	for (var i : int = 0;i < 100; i++) {
+/*	for (var i : int = 0;i < 100; i++) {
 	Instantiate(YellowDot, Vector3(Random.Range(-5,0),0.5,(i/10)+0), new  Quaternion.AngleAxis(90, Vector3.right));
 	Instantiate(GreenCheck, Vector3(Random.Range(0,5),0.5,(i/10)+0), new  Quaternion.AngleAxis(90, Vector3.right));
 	Instantiate(PurpleLine, Vector3(Random.Range(0,5),0.5,-(i/10)+0), new  Quaternion.AngleAxis(90, Vector3.right));
 	}
-}
+} */
 
 function SetPlayerHUD () {
     // Position the billboard in the center, 
