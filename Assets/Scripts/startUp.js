@@ -16,7 +16,7 @@ function Start () {
 	SetPlayerHUD();
 	SetBoostHUD();
 
-	for (var i : int = 0; i < 10; i++){
+/*	for (var i : int = 0; i < 10; i++){
 		for (var j : int = 0; j < 10; j++){
 			var seedNumber = Random.Range(0,3);
 			if (seedNumber == 1){
@@ -36,14 +36,14 @@ function Start () {
 			}
 		}
 	}
-}
+}*/
 		
-/*	for (var i : int = 0;i < 100; i++) {
+	for (var i : int = 0;i < 100; i++) {
 	Instantiate(YellowDot, Vector3(Random.Range(-5,0),0.5,(i/10)+0), new  Quaternion.AngleAxis(90, Vector3.right));
 	Instantiate(GreenCheck, Vector3(Random.Range(0,5),0.5,(i/10)+0), new  Quaternion.AngleAxis(90, Vector3.right));
 	Instantiate(PurpleLine, Vector3(Random.Range(0,5),0.5,-(i/10)+0), new  Quaternion.AngleAxis(90, Vector3.right));
 	}
-}*/
+}
 
 function SetPlayerHUD () {
     // Position the billboard in the center, 
