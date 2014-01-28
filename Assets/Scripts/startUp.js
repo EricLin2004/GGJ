@@ -9,6 +9,7 @@ function Awake () {
 }
 
 function Start () {
+	print("starting up!");
 	SetPlayerHUD();
 	SetBoostHUD();
 }
@@ -39,8 +40,6 @@ function SetPlayerHUD () {
         scaledHeight = (scaledWidth / textureAspectRatio);
     }
     var xPosition : float = screenWidth / 2 - (scaledWidth / 2);
-    print(screenHeight);
-    print(scaledHeight);
     myGUITexture.pixelInset = 
         new Rect(xPosition, screenHeight - scaledHeight, scaledWidth, scaledHeight);
 }
