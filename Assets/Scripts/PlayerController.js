@@ -28,7 +28,7 @@ function Update () {
 
 function FixedUpdate() {
  	if (networkView.isMine) {
-    var speedX : float = speed;
+    	var speedX : float = speed;
 		var moveHorizontal : float = Input.GetAxis("Horizontal");
 		var moveVertical : float = Input.GetAxis("Vertical");
 		var movement : Vector3 = new Vector3(moveHorizontal,0,moveVertical);
@@ -44,9 +44,11 @@ function FixedUpdate() {
 }
 
 function OnCollisionEnter(other : Collision) {
+	var moveHorizontal : float = Input.GetAxis("Horizontal");
+	var moveVertical : float = Input.GetAxis("Vertical");
 	var movement : Vector3 = new Vector3(moveHorizontal,0,moveVertical);
+	var speedX : float = speed;
 
-	print(speedX);
 	rigidbody.AddForce(movement * speedX * Time.deltaTime);
 
   if(other.gameObject.tag == "Player") {
